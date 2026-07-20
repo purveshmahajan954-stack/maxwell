@@ -947,9 +947,9 @@ gsap.to(path, {
 (function(){
   function moveFooter(){
     var f = document.getElementById('footer');
-    var pw = document.querySelector('.page-wrapper');
-    if(f && pw && f.parentElement !== pw){
-      pw.appendChild(f);
+    var mw = document.querySelector('.main-wrapper');
+    if(f && mw && f.parentElement !== mw){
+      mw.appendChild(f);
     }
   }
   if(document.readyState==='complete') moveFooter();
