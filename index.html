@@ -803,66 +803,144 @@ gsap.to(path, {
   pointer-events: none !important;
 }
 </style>
-<!-- VIVRE-STYLE FOOTER -->
+<!-- MAXWELL FOOTER -->
 <style>
-.vivre-footer{background:#000;color:#fff;padding:90px 6% 30px;font-family:'Helvetica Neue',Arial,sans-serif;overflow:hidden;position:relative;}
-.vivre-top{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:60px;align-items:flex-start;margin-bottom:80px;}
-.vivre-cta h2{font-size:clamp(28px,3vw,44px);font-weight:400;line-height:1.25;margin:0 0 28px;letter-spacing:-.5px;color:#fff;}
-.vivre-btn{display:inline-flex;align-items:center;gap:10px;padding:12px 22px;border:1px solid #fff;border-radius:999px;color:#fff;text-decoration:none;font-size:15px;transition:.35s;}
-.vivre-btn:hover{background:#fff;color:#000;}
-.vivre-btn .arr{display:inline-block;transition:transform .35s;}
-.vivre-btn:hover .arr{transform:translate(3px,-3px);}
-.vivre-copy{margin-top:28px;color:#8a8a8a;font-size:14px;}
-.vivre-nav ul{list-style:none;padding:0;margin:0;}
-.vivre-nav li{margin-bottom:14px;}
-.vivre-nav a,.vivre-connect a{color:#fff;text-decoration:none;font-size:18px;transition:opacity .3s;}
-.vivre-nav a:hover,.vivre-connect a:hover{opacity:.6;}
-.vivre-connect h4{font-size:18px;margin:0 0 18px;font-weight:500;color:#fff;}
-.vivre-connect p{margin:0;color:#bfbfbf;font-size:15px;line-height:1.7;}
-.vivre-socials{display:flex;gap:16px;margin-top:22px;}
-.vivre-socials a{width:36px;height:36px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;background:#111;transition:.3s;}
-.vivre-socials a:hover{background:#fff;}
-.vivre-socials svg{width:18px;height:18px;fill:#fff;transition:.3s;}
-.vivre-socials a:hover svg{fill:#000;}
-
-.vivre-brand{position:relative;text-align:center;margin-top:20px;padding:0 20px;overflow:hidden;}
-.vivre-brand-text{font-family:'Helvetica Neue',Arial,sans-serif;font-weight:300;font-size:clamp(60px,17vw,260px);line-height:1;letter-spacing:-.02em;margin:0;white-space:nowrap;background-image:url('https://cdn.prod.website-files.com/697797a5e8e563920247d163/6983e7f6ccaebdfeaa43934a_d2ea27b2ba1bf2f7ca2ff165f5a3e580_og.png');background-size:cover;background-position:center;-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;user-select:none;transition:letter-spacing 1s ease;}
-.vivre-footer:hover .vivre-brand-text{letter-spacing:0;}
+.mx-footer{background:#fff;color:#222;font-family:'Helvetica Neue',Arial,sans-serif;border-top:3px solid #e8e8e8;}
+.mx-footer-logo{padding:28px 5% 22px;border-bottom:1px solid #e8e8e8;}
+.mx-footer-logo img{height:56px;width:auto;}
+.mx-footer-logo-text{display:inline-flex;flex-direction:column;line-height:1;}
+.mx-footer-logo-mark{font-size:28px;font-weight:800;color:#d0021b;letter-spacing:1px;}
+.mx-footer-logo-sub{font-size:11px;letter-spacing:2px;color:#555;text-transform:uppercase;}
+.mx-footer-cols{display:grid;grid-template-columns:1.15fr 1.1fr 1fr 1fr;gap:0;border-bottom:1px solid #e8e8e8;}
+.mx-footer-col{padding:36px 5% 36px 5%;border-right:1px solid #e8e8e8;}
+.mx-footer-col:last-child{border-right:none;}
+.mx-footer-col h4{font-size:15px;font-weight:700;color:#111;margin:0 0 10px;padding-bottom:8px;border-bottom:2px solid #d0021b;display:inline-block;}
+.mx-footer-col p{font-size:14px;color:#444;line-height:1.75;margin:12px 0 0;}
+.mx-footer-col a{color:#444;text-decoration:none;font-size:14px;transition:color .2s;}
+.mx-footer-col a:hover{color:#d0021b;}
+.mx-footer-col ul{list-style:none;padding:0;margin:12px 0 0;}
+.mx-footer-col ul li{margin-bottom:10px;}
+.mx-footer-tel{display:flex;align-items:center;gap:7px;margin-top:8px;font-size:14px;color:#444;}
+.mx-footer-tel svg{flex-shrink:0;}
+.mx-newsletter{margin-top:18px;}
+.mx-newsletter label{font-size:13px;font-weight:600;color:#111;display:block;margin-bottom:8px;}
+.mx-newsletter input{width:100%;box-sizing:border-box;border:1px solid #ccc;border-radius:3px;padding:9px 12px;font-size:13px;color:#222;outline:none;}
+.mx-newsletter input:focus{border-color:#d0021b;}
+.mx-newsletter button{width:100%;margin-top:8px;background:#d0021b;color:#fff;border:none;padding:10px;font-size:13px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border-radius:3px;cursor:pointer;transition:background .2s;}
+.mx-newsletter button:hover{background:#a80016;}
+.mx-follow{margin-top:20px;}
+.mx-follow p{font-size:13px;font-weight:600;color:#111;margin:0 0 10px;}
+.mx-socials{display:flex;gap:10px;flex-wrap:wrap;}
+.mx-socials a{width:38px;height:38px;border-radius:8px;background:#111;display:inline-flex;align-items:center;justify-content:center;transition:background .2s;}
+.mx-socials a:hover{background:#d0021b;}
+.mx-socials svg{width:18px;height:18px;fill:#fff;}
+.mx-whatsapp-icon{background:#25d366 !important;}
+.mx-footer-col h5{font-size:14px;font-weight:700;color:#111;margin:20px 0 8px;padding-bottom:6px;border-bottom:2px solid #d0021b;display:inline-block;}
+.mx-footer-bottom{display:flex;justify-content:space-between;align-items:center;padding:14px 5%;background:#f5f5f5;font-size:13px;color:#666;flex-wrap:wrap;gap:8px;}
+.mx-footer-bottom a{color:#666;text-decoration:none;}
+.mx-footer-bottom a:hover{color:#d0021b;}
 @media(max-width:900px){
-.vivre-top{grid-template-columns:1fr;gap:50px;margin-bottom:60px;}
-.vivre-brand-text{font-size:clamp(60px,28vw,220px);}
+  .mx-footer-cols{grid-template-columns:1fr 1fr;}
+  .mx-footer-col{border-right:none;border-bottom:1px solid #e8e8e8;}
+  .mx-footer-col:last-child{border-bottom:none;}
+}
+@media(max-width:540px){
+  .mx-footer-cols{grid-template-columns:1fr;}
 }
 </style>
-<footer class="vivre-footer">
-  <div class="vivre-top">
-    <div class="vivre-cta">
-      <h2>See how Maxwell can power up<br>your kitchen. Get in touch today.</h2>
-      <a href="tel:+917011441703" class="vivre-btn">Let's Talk <span class="arr">↗</span></a>
-      <div class="vivre-copy">© 2026 Maxwell Industries · Premium Home Appliances</div>
-    </div>
-    <nav class="vivre-nav">
-      <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="#products">Products</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li><a href="#faq">FAQ</a></li>
-      </ul>
-    </nav>
-    <div class="vivre-connect">
-      <h4>Connect</h4>
-      <p><strong style="color:#fff;font-weight:500;">Mfg. &amp; Mktd. by</strong><br>Maxwell Industries</p>
-      <p style="margin-top:12px;">Plot No. 28/1, Sector-94,<br>Greater Faridabad – 121002</p>
-      <p style="margin-top:12px;"><a href="https://www.maxwellgroup.in" target="_blank" rel="noopener">www.maxwellgroup.in</a></p>
-      <p style="margin-top:12px;">For any queries or complaints call us at our<br>Customer Care Number: <a href="tel:+917011441703">+91 70114 41703</a></p>
-      <div class="vivre-socials">
-        <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M13 22v-8h3l1-4h-4V7.5c0-1.1.3-2 2-2h2V2h-3c-3 0-5 1.8-5 5v3H6v4h3v8h4z"/></svg></a>
-        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm5 5.5A4.5 4.5 0 1 0 16.5 12 4.5 4.5 0 0 0 12 7.5zm0 2A2.5 2.5 0 1 1 9.5 12 2.5 2.5 0 0 1 12 9.5zM17.5 6a1 1 0 1 0 1 1 1 1 0 0 0-1-1z"/></svg></a>
-        <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M23 12s0-3.5-.4-5.2a2.8 2.8 0 0 0-2-2C18.9 4.4 12 4.4 12 4.4s-6.9 0-8.6.4a2.8 2.8 0 0 0-2 2C1 8.5 1 12 1 12s0 3.5.4 5.2a2.8 2.8 0 0 0 2 2c1.7.4 8.6.4 8.6.4s6.9 0 8.6-.4a2.8 2.8 0 0 0 2-2c.4-1.7.4-5.2.4-5.2zM10 15.5v-7l6 3.5z"/></svg></a>
-        <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M4.98 3.5A2.5 2.5 0 1 1 2.5 6 2.5 2.5 0 0 1 4.98 3.5zM3 8.98h4V21H3zM9 9h3.8v1.7h.1a4.2 4.2 0 0 1 3.8-2c4 0 4.8 2.6 4.8 6V21h-4v-5.6c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9V21H9z"/></svg></a>
+<footer class="mx-footer">
+  <!-- Logo bar -->
+  <div class="mx-footer-logo">
+    <img src="https://cdn.prod.website-files.com/697797a5e8e563920247d163/6983e7c5ac59ad91661fed9f_favicon32.png" alt="Maxwell" style="height:44px;vertical-align:middle;margin-right:8px;">
+  </div>
+
+  <!-- 4-column grid -->
+  <div class="mx-footer-cols">
+
+    <!-- Col 1: Corporate Office -->
+    <div class="mx-footer-col">
+      <h4>Corporate Office</h4>
+      <p>Maxwell Industries</p>
+      <p>Plot No. 28/1, Sector-94,<br>Greater Faridabad – 121002, (India)</p>
+      <div class="mx-footer-tel">
+        <svg viewBox="0 0 24 24" width="15" height="15" fill="#d0021b"><path d="M6.6 10.8a15.2 15.2 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.2 11.4 11.4 0 0 0 3.6.6 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.4 11.4 0 0 0 .6 3.6 1 1 0 0 1-.2 1z"/></svg>
+        <a href="tel:+917011441703">+91 70114 41703</a>
+      </div>
+      <div class="mx-footer-tel" style="margin-top:6px;">
+        <svg viewBox="0 0 24 24" width="15" height="15" fill="#d0021b"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5z"/></svg>
+        <a href="mailto:care@maxwellindustries.in">care@maxwellindustries.in</a>
+      </div>
+      <div class="mx-newsletter">
+        <label>Newsletter</label>
+        <input type="email" placeholder="Your email address">
+        <button type="button">Submit</button>
       </div>
     </div>
+
+    <!-- Col 2: Customer Care -->
+    <div class="mx-footer-col">
+      <h4>Customer Care</h4>
+      <p>If you have any issue with our Home Appliances | Mixer Grinders | Juicers | Water Purifiers you can contact us on our customer care number.</p>
+      <div class="mx-footer-tel" style="margin-top:14px;">
+        <svg viewBox="0 0 24 24" width="15" height="15" fill="#d0021b"><path d="M6.6 10.8a15.2 15.2 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.2 11.4 11.4 0 0 0 3.6.6 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.4 11.4 0 0 0 .6 3.6 1 1 0 0 1-.2 1z"/></svg>
+        <a href="tel:18001234567">1800 123 4567 (Toll Free No.)</a>
+      </div>
+      <div class="mx-footer-tel" style="margin-top:6px;">
+        <svg viewBox="0 0 24 24" width="15" height="15" fill="#25d366"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.38 5.06L2 22l5.09-1.35A9.94 9.94 0 0 0 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm4.93 13.44c-.2.57-1.19 1.1-1.64 1.16-.42.06-.95.08-1.53-.1-.35-.11-.8-.26-1.37-.51-2.4-1.03-3.97-3.44-4.09-3.6-.12-.16-.96-1.28-.96-2.44 0-1.16.61-1.73.83-1.97.22-.24.47-.3.63-.3h.45c.14 0 .34-.05.53.4.2.47.67 1.63.73 1.75.06.12.1.26.02.42-.08.16-.12.26-.24.4-.12.14-.25.31-.36.42-.12.12-.24.25-.1.49.14.24.62 1.02 1.33 1.65.91.82 1.68 1.07 1.92 1.19.24.12.38.1.52-.06.14-.16.6-.7.76-.94.16-.24.32-.2.54-.12.22.08 1.39.66 1.63.78.24.12.4.18.46.28.06.1.06.57-.14 1.14z"/></svg>
+        <a href="https://wa.me/917011441703" target="_blank" rel="noopener">+91 70114 41703</a>
+      </div>
+      <div class="mx-follow">
+        <p>Follow Us On</p>
+        <div class="mx-socials">
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm5 5.5A4.5 4.5 0 1 0 16.5 12 4.5 4.5 0 0 0 12 7.5zm0 2A2.5 2.5 0 1 1 9.5 12 2.5 2.5 0 0 1 12 9.5zM17.5 6a1 1 0 1 0 1 1 1 1 0 0 0-1-1z"/></svg></a>
+          <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M23 12s0-3.5-.4-5.2a2.8 2.8 0 0 0-2-2C18.9 4.4 12 4.4 12 4.4s-6.9 0-8.6.4a2.8 2.8 0 0 0-2 2C1 8.5 1 12 1 12s0 3.5.4 5.2a2.8 2.8 0 0 0 2 2c1.7.4 8.6.4 8.6.4s6.9 0 8.6-.4a2.8 2.8 0 0 0 2-2c.4-1.7.4-5.2.4-5.2zM10 15.5v-7l6 3.5z"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M13 22v-8h3l1-4h-4V7.5c0-1.1.3-2 2-2h2V2h-3c-3 0-5 1.8-5 5v3H6v4h3v8h4z"/></svg></a>
+          <a href="#" aria-label="X (Twitter)"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L2.249 2.25H9.08l4.261 5.636 4.903-5.636zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M4.98 3.5A2.5 2.5 0 1 1 2.5 6 2.5 2.5 0 0 1 4.98 3.5zM3 8.98h4V21H3zM9 9h3.8v1.7h.1a4.2 4.2 0 0 1 3.8-2c4 0 4.8 2.6 4.8 6V21h-4v-5.6c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9V21H9z"/></svg></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Col 3: Our Products -->
+    <div class="mx-footer-col">
+      <h4>Our Products</h4>
+      <ul>
+        <li><a href="#">Mixer Grinders</a></li>
+        <li><a href="#">Juicers</a></li>
+        <li><a href="#">Water Purifiers</a></li>
+        <li><a href="#">Induction Cooktops</a></li>
+        <li><a href="#">Electric Kettles</a></li>
+        <li><a href="#">Sandwich Makers</a></li>
+        <li><a href="#">Hand Blenders</a></li>
+        <li><a href="#">Dry Irons</a></li>
+      </ul>
+    </div>
+
+    <!-- Col 4: Quick Links + Other Links -->
+    <div class="mx-footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Contact Us</a></li>
+        <li><a href="#">FAQ</a></li>
+        <li><a href="#">Dealer Locator</a></li>
+        <li><a href="#">Service Centre</a></li>
+      </ul>
+      <h5>Other Links</h5>
+      <ul>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms &amp; Conditions</a></li>
+        <li><a href="#">Warranty Policy</a></li>
+        <li><a href="#">Careers</a></li>
+      </ul>
+    </div>
+
   </div>
-  <div class="vivre-brand"><h1 class="vivre-brand-text">MAXWELL</h1></div>
+
+  <!-- Bottom bar -->
+  <div class="mx-footer-bottom">
+    <span>© 2026 Maxwell Industries · Premium Home Appliances · All Rights Reserved</span>
+    <a href="https://www.maxwellgroup.in" target="_blank" rel="noopener">www.maxwellgroup.in</a>
+  </div>
 </footer>
-<script>(function(){function m(){var f=document.querySelector(".vivre-footer");if(f&&f.parentElement!==document.body){document.body.appendChild(f);}if(f){f.style.position="relative";f.style.zIndex="9999";}}if(document.readyState==="complete")m();else window.addEventListener("load",m);setTimeout(m,1500);})();</script></body></html>
+</body></html>
