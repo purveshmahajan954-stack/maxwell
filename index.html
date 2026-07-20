@@ -943,4 +943,19 @@ gsap.to(path, {
     <a href="https://www.maxwellgroup.in" target="_blank" rel="noopener">www.maxwellgroup.in</a>
   </div>
 </footer>
+<script>
+(function(){
+  function moveFooter(){
+    var f = document.getElementById('footer');
+    var pw = document.querySelector('.page-wrapper');
+    if(f && pw && f.parentElement !== pw){
+      pw.appendChild(f);
+    }
+  }
+  if(document.readyState==='complete') moveFooter();
+  else window.addEventListener('load', moveFooter);
+  setTimeout(moveFooter, 300);
+  setTimeout(moveFooter, 1000);
+})();
+</script>
 </body></html>
