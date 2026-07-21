@@ -548,47 +548,29 @@ observer.observe(document.body, {
 <!-- This site is converting visitors into subscribers and customers with https://respond.io --><script id="respondio__widget" src="https://cdn.respond.io/webchat/widget/widget.js?cId=3a154e3bafbbce4a2aa93e29aa30dd2"></script><!-- https://respond.io --><script>
 const wrapper = document.querySelector(".horizontal_wrapper");
 const path = document.querySelector("#draw-path");
-const length = path.getTotalLength();
-
-path.style.strokeDasharray = length;
-path.style.strokeDashoffset = 0;
-
-gsap.fromTo(path, 
-  { strokeDashoffset: length },
-  {
-    strokeDashoffset: 0,
-    ease: "none",
-    scrollTrigger: {
-      trigger: wrapper,
-      start: "top 1%",
-      end: "bottom 95%",
-      scrub: true
-    }
-  }
-);
+if (path) {
+  const length = path.getTotalLength();
+  path.style.strokeDasharray = length;
+  path.style.strokeDashoffset = 0;
+  gsap.fromTo(path, { strokeDashoffset: length }, {
+    strokeDashoffset: 0, ease: "none",
+    scrollTrigger: { trigger: wrapper, start: "top 1%", end: "bottom 95%", scrub: true }
+  });
+}
 </script>
 
 <script>
 const wrapper2 = document.querySelector(".horizontal_wrapper");
 const path2 = document.querySelector("#draw-path2");
-const length2 = path2.getTotalLength();
-
-path2.style.strokeDasharray = length2;
-path2.style.strokeDashoffset = 0;
-
-gsap.fromTo(path2, 
-  { strokeDashoffset: length2 },
-  {
-    strokeDashoffset: 0,
-    ease: "none",
-    scrollTrigger: {
-      trigger: wrapper2,
-      start: "top 1%",
-      end: "bottom 95%",
-      scrub: true
-    }
-  }
-);
+if (path2) {
+  const length2 = path2.getTotalLength();
+  path2.style.strokeDasharray = length2;
+  path2.style.strokeDashoffset = 0;
+  gsap.fromTo(path2, { strokeDashoffset: length2 }, {
+    strokeDashoffset: 0, ease: "none",
+    scrollTrigger: { trigger: wrapper2, start: "top 1%", end: "bottom 95%", scrub: true }
+  });
+}
 </script>
 
 
