@@ -1,0 +1,8 @@
+uploads = []
+generated = []
+
+[[outputs]]
+id = "GC7sGjgVjbaUt5QENtMiA"
+uri = "file://attached_assets/maxwell-logo-transparent.png"
+type = "image"
+title = "Maxwell Logo - Transparent"
