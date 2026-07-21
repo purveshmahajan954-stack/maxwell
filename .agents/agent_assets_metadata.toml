@@ -6,3 +6,9 @@ id = "GC7sGjgVjbaUt5QENtMiA"
 uri = "file://attached_assets/maxwell-logo-transparent.png"
 type = "image"
 title = "Maxwell Logo - Transparent"
+
+[[outputs]]
+id = "I1obcexgi9IdTAvdAr9Iz"
+uri = "file://attached_assets/maxwell-logo-transparent-2.png"
+type = "image"
+title = "Maxwell Logo - Transparent"
