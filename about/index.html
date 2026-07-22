@@ -43,6 +43,22 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 /* Ensure the wrapper holding transition+leadership is in flow */
 .section_about-hero + div,
 .section_about-hero ~ div:has(.section_leadership) { position: relative !important; }
+/* Force-show all leadership content hidden by GSAP scroll animations */
+.section_leadership *,
+.leadership_content,
+.leadership_top,
+.leadership_center,
+.leadership_bottom,
+.leadership_bottom-grid,
+.leadership_card,
+.leadership_card-img,
+.leadership_card-top,
+.leadership_center-content { 
+  opacity: 1 !important; 
+  visibility: visible !important; 
+  transform: none !important;
+  clip-path: none !important;
+}
 </style>
 <style>
 .section_horizontal { height: auto !important; min-height: unset !important; }
@@ -697,5 +713,32 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
+</script>
+<script>
+// Force-show leadership content hidden by GSAP scroll animations
+(function fixLeadership() {
+  var selectors = [
+    '.section_leadership', '.leadership_content', '.leadership_top',
+    '.leadership_center', '.leadership_center-content', '.leadership_bottom',
+    '.leadership_bottom-grid', '.leadership_card', '.leadership_card-img',
+    '.leadership_card-top', '.leadership_bg', '.leadership_nav-change'
+  ];
+  function show() {
+    selectors.forEach(function(sel) {
+      document.querySelectorAll(sel).forEach(function(el) {
+        el.style.setProperty('opacity', '1', 'important');
+        el.style.setProperty('visibility', 'visible', 'important');
+        el.style.setProperty('transform', 'none', 'important');
+        el.style.setProperty('clip-path', 'none', 'important');
+      });
+    });
+  }
+  // Run immediately, after short delay, and after full load
+  show();
+  setTimeout(show, 300);
+  setTimeout(show, 800);
+  setTimeout(show, 1500);
+  window.addEventListener('load', function() { show(); setTimeout(show, 500); });
+})();
 </script>
 </body></html>
