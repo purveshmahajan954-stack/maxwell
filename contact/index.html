@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <title>Contact Us | Maxwell Home Appliances</title>
+  <meta content="Get in touch with Maxwell Industries for product support, dealer enquiries, or general queries." name="description"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+
+  <!-- Webflow shared CSS (typography, buttons, nav, etc.) -->
+  <link href="https://cdn.prod.website-files.com/697797a5e8e563920247d163/css/flyward-new-site.shared.6b8f5d9f4.min.css" rel="stylesheet" type="text/css" crossorigin="anonymous"/>
+  <link href="https://cdn.prod.website-files.com/697797a5e8e563920247d163/6983e7c5ac59ad91661fed9f_favicon32.png" rel="shortcut icon" type="image/x-icon"/>
+
+  <style>
+    /* ── Base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #fbf8f3;
+      font-family: Arial, sans-serif;
+      color: #3d2d20;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { text-decoration: none; color: inherit; }
+
+    /* ── Nav (mirrors other pages) ── */
+    .cx-nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 14px 5%;
+      background: #fbf8f3;
+      border-bottom: 1px solid rgba(61,45,32,.1);
+    }
+    .cx-nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .cx-nav-links a {
+      font-size: .75rem; letter-spacing: .12em; text-transform: uppercase;
+      color: #3d2d20; font-weight: 500; transition: opacity .2s;
+    }
+    .cx-nav-links a:hover { opacity: .6; }
+    .cx-nav-links a.active { border-bottom: 1.5px solid #d0021b; padding-bottom: 2px; }
+    .cx-nav-logo img { height: 40px; display: block; }
+    .cx-nav-cta {
+      padding: 10px 22px; border: 1.5px solid #3d2d20; border-radius: 50px;
+      font-size: .73rem; letter-spacing: .1em; text-transform: uppercase;
+      font-weight: 600; transition: .25s;
+    }
+    .cx-nav-cta:hover { background: #3d2d20; color: #fbf8f3; }
+    .cx-nav-burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+    .cx-nav-burger span { display: block; width: 24px; height: 2px; background: #3d2d20; border-radius: 2px; }
+
+    /* ── Hero ── */
+    .cx-hero {
+      margin-top: 70px;
+      background: #3d2d20;
+      padding: 100px 8% 80px;
+      position: relative; overflow: hidden;
+    }
+    .cx-hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    .cx-hero-inner { position: relative; max-width: 900px; }
+    .cx-hero-tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(208,2,27,.15); border: 1px solid rgba(208,2,27,.3);
+      color: #e8667a; border-radius: 50px; padding: 6px 16px;
+      font-size: .72rem; letter-spacing: .12em; text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+    .cx-hero-tag::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: #d0021b; flex-shrink: 0; }
+    .cx-hero h1 {
+      font-size: clamp(2.4rem, 5vw, 4.5rem);
+      font-weight: 300; line-height: 1.12;
+      color: #fff; letter-spacing: -.01em;
+      margin-bottom: 20px;
+    }
+    .cx-hero h1 strong { font-weight: 700; color: #d0021b; }
+    .cx-hero-sub { font-size: 1.05rem; color: rgba(255,255,255,.65); line-height: 1.7; max-width: 520px; }
+
+    /* ── Contact Body ── */
+    .cx-body {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 0;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 80px 8%;
+    }
+
+    /* Info column */
+    .cx-info { padding-right: 60px; border-right: 1px solid rgba(61,45,32,.12); }
+    .cx-info-title {
+      font-size: 1.6rem; font-weight: 700; color: #3d2d20;
+      margin-bottom: 10px; line-height: 1.3;
+    }
+    .cx-info-sub { font-size: .95rem; color: #7a6555; line-height: 1.7; margin-bottom: 48px; }
+
+    .cx-cards { display: flex; flex-direction: column; gap: 24px; margin-bottom: 48px; }
+    .cx-card {
+      display: flex; gap: 18px; align-items: flex-start;
+      background: #fff; border-radius: 14px;
+      padding: 22px 24px;
+      border: 1px solid rgba(61,45,32,.08);
+      transition: box-shadow .2s, transform .2s;
+    }
+    .cx-card:hover { box-shadow: 0 8px 32px rgba(61,45,32,.1); transform: translateY(-2px); }
+    .cx-card-icon {
+      width: 46px; height: 46px; border-radius: 12px;
+      background: #3d2d20; display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .cx-card-icon svg { width: 22px; height: 22px; fill: #fff; }
+    .cx-card-body {}
+    .cx-card-label { font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; color: #a08870; margin-bottom: 4px; }
+    .cx-card-val { font-size: .95rem; font-weight: 600; color: #3d2d20; line-height: 1.5; }
+    .cx-card-val a { color: #3d2d20; }
+    .cx-card-val a:hover { color: #d0021b; }
+
+    /* Social row */
+    .cx-social-label { font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; color: #a08870; margin-bottom: 14px; }
+    .cx-socials { display: flex; gap: 12px; flex-wrap: wrap; }
+    .cx-socials a {
+      width: 40px; height: 40px; border-radius: 10px;
+      background: #3d2d20; display: flex; align-items: center; justify-content: center;
+      transition: background .2s, transform .2s;
+    }
+    .cx-socials a:hover { background: #d0021b; transform: translateY(-2px); }
+    .cx-socials svg { width: 18px; height: 18px; fill: #fff; }
+
+    /* Form column */
+    .cx-form-col { padding-left: 60px; }
+    .cx-form-title { font-size: 1.4rem; font-weight: 700; color: #3d2d20; margin-bottom: 6px; }
+    .cx-form-sub { font-size: .9rem; color: #7a6555; margin-bottom: 32px; }
+
+    .cx-form { display: flex; flex-direction: column; gap: 18px; }
+    .cx-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .cx-field { display: flex; flex-direction: column; gap: 6px; }
+    .cx-field label { font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: #7a6555; font-weight: 600; }
+    .cx-field input,
+    .cx-field select,
+    .cx-field textarea {
+      background: #fff; border: 1.5px solid rgba(61,45,32,.15);
+      border-radius: 10px; padding: 13px 16px;
+      font-size: .95rem; color: #3d2d20; outline: none;
+      transition: border-color .2s, box-shadow .2s;
+      font-family: inherit;
+    }
+    .cx-field input::placeholder,
+    .cx-field textarea::placeholder { color: #c5b8ae; }
+    .cx-field input:focus,
+    .cx-field select:focus,
+    .cx-field textarea:focus {
+      border-color: #3d2d20;
+      box-shadow: 0 0 0 3px rgba(61,45,32,.08);
+    }
+    .cx-field textarea { resize: vertical; min-height: 130px; }
+    .cx-field select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='%233d2d20'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; cursor: pointer; }
+
+    .cx-submit {
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+      background: #3d2d20; color: #fff;
+      border: none; border-radius: 50px; cursor: pointer;
+      padding: 16px 38px; font-size: .9rem; font-weight: 600;
+      letter-spacing: .06em; text-transform: uppercase;
+      transition: background .25s, transform .2s;
+      align-self: flex-start; margin-top: 4px;
+    }
+    .cx-submit:hover { background: #d0021b; transform: translateY(-2px); }
+    .cx-submit svg { width: 16px; height: 16px; fill: #fff; }
+
+    .cx-success {
+      display: none; background: #eaf6ee; border: 1px solid #6fcf97;
+      border-radius: 10px; padding: 16px 20px; color: #1e7e34;
+      font-size: .9rem; margin-top: 12px; align-items: center; gap: 10px;
+    }
+    .cx-success.show { display: flex; }
+
+    /* ── Map / Find Us ── */
+    .cx-map-section {
+      background: #3d2d20;
+      padding: 80px 8%;
+      text-align: center;
+    }
+    .cx-map-section h2 { font-size: 2rem; font-weight: 300; color: #fff; margin-bottom: 10px; }
+    .cx-map-section h2 strong { font-weight: 700; color: #d0021b; }
+    .cx-map-section p { color: rgba(255,255,255,.6); margin-bottom: 36px; font-size: .95rem; }
+    .cx-map-wrap {
+      border-radius: 16px; overflow: hidden;
+      border: 2px solid rgba(255,255,255,.1);
+      max-width: 1000px; margin: 0 auto;
+    }
+    .cx-map-wrap iframe { display: block; width: 100%; height: 380px; border: 0; }
+
+    /* ── Footer (mirrors index.html) ── */
+    footer {
+      background: #1d1713; color: #fff;
+      padding: 90px 8%; font-family: Arial, sans-serif;
+    }
+    .mx-footer-logo { margin-bottom: 40px; }
+    .mx-footer-cols { display: grid; grid-template-columns: 1.3fr 1fr 1fr 1fr; gap: 48px; }
+    .mx-footer-col h4 { font-size: 1rem; font-weight: 700; color: #fff; margin-bottom: 16px; }
+    .mx-footer-col h5 { font-size: .85rem; font-weight: 700; color: #fff; margin: 22px 0 10px; }
+    .mx-footer-col p { color: #bfbfbf; line-height: 1.7; font-size: .88rem; margin-bottom: 8px; }
+    .mx-footer-col ul { list-style: none; padding: 0; }
+    .mx-footer-col ul li { margin-bottom: 10px; }
+    .mx-footer-col ul li a { color: #bfbfbf; font-size: .88rem; transition: color .2s; }
+    .mx-footer-col ul li a:hover { color: #d0021b; }
+    .mx-footer-tel { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+    .mx-footer-tel a { color: #bfbfbf; font-size: .88rem; }
+    .mx-footer-tel a:hover { color: #d0021b; }
+    .mx-newsletter { margin-top: 20px; }
+    .mx-newsletter label { display: block; font-size: .75rem; text-transform: uppercase; letter-spacing: .08em; color: #a0a0a0; margin-bottom: 8px; }
+    .mx-newsletter input { background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.15); border-radius: 6px 0 0 6px; padding: 10px 14px; color: #fff; font-size: .88rem; outline: none; width: 160px; }
+    .mx-newsletter button { background: #d0021b; color: #fff; border: none; border-radius: 0 6px 6px 0; padding: 10px 16px; cursor: pointer; font-size: .82rem; font-weight: 600; }
+    .mx-follow p { color: #bfbfbf; font-size: .82rem; margin-top: 18px; margin-bottom: 10px; }
+    .mx-socials { display: flex; gap: 10px; flex-wrap: wrap; }
+    .mx-socials a { width: 34px; height: 34px; background: rgba(255,255,255,.08); border-radius: 8px; display: flex; align-items: center; justify-content: center; transition: background .2s; }
+    .mx-socials a:hover { background: #d0021b; }
+    .mx-socials svg { width: 16px; height: 16px; fill: #fff; }
+    .mx-footer-bottom { margin-top: 60px; padding-top: 28px; border-top: 1px solid rgba(255,255,255,.1); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; color: #808080; font-size: .82rem; }
+    .mx-footer-bottom a { color: #d0021b; }
+
+    /* ── Responsive ── */
+    @media (max-width: 991px) {
+      .cx-body { grid-template-columns: 1fr; padding: 60px 6%; }
+      .cx-info { padding-right: 0; border-right: none; border-bottom: 1px solid rgba(61,45,32,.12); padding-bottom: 50px; margin-bottom: 50px; }
+      .cx-form-col { padding-left: 0; }
+      .mx-footer-cols { grid-template-columns: 1fr 1fr; }
+      .cx-nav-links, .cx-nav-cta { display: none; }
+      .cx-nav-burger { display: flex; }
+    }
+    @media (max-width: 600px) {
+      .cx-row { grid-template-columns: 1fr; }
+      .mx-footer-cols { grid-template-columns: 1fr; }
+      .cx-hero { padding: 80px 6% 60px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── Navigation ── -->
+<nav class="cx-nav">
+  <ul class="cx-nav-links">
+    <li><a href="/about">About</a></li>
+    <li><a href="/private-service">Service</a></li>
+    <li><a href="/#products">Products</a></li>
+    <li><a href="/contact" class="active">Contact us</a></li>
+  </ul>
+
+  <a href="/" class="cx-nav-logo">
+    <img src="/maxwell-logo-nav.png" alt="Maxwell">
+  </a>
+
+  <a href="tel:+917011441703" class="cx-nav-cta">Call Us</a>
+  <div class="cx-nav-burger" onclick="this.classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- ── Hero ── -->
+<section class="cx-hero">
+  <div class="cx-hero-inner">
+    <div class="cx-hero-tag">Contact Us</div>
+    <h1>Let's <strong>Talk.</strong><br>We're Here<br>to Help.</h1>
+    <p class="cx-hero-sub">Whether it's product support, a dealer enquiry, or just a question — our team responds within 24 hours.</p>
+  </div>
+</section>
+
+<!-- ── Main contact body ── -->
+<section class="cx-body">
+
+  <!-- Info -->
+  <div class="cx-info">
+    <h2 class="cx-info-title">Get in Touch</h2>
+    <p class="cx-info-sub">Reach us through any channel below. Our customer care team is available Mon–Sat, 9 AM – 6 PM IST.</p>
+
+    <div class="cx-cards">
+      <!-- Corporate Office -->
+      <div class="cx-card">
+        <div class="cx-card-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z"/></svg>
+        </div>
+        <div class="cx-card-body">
+          <div class="cx-card-label">Corporate Office</div>
+          <div class="cx-card-val">Maxwell Industries, Plot No. 28/1,<br>Sector-94, Greater Faridabad – 121002, India</div>
+        </div>
+      </div>
+
+      <!-- Phone -->
+      <div class="cx-card">
+        <div class="cx-card-icon">
+          <svg viewBox="0 0 24 24"><path d="M6.6 10.8a15.2 15.2 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.2 11.4 11.4 0 0 0 3.6.6 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.4 11.4 0 0 0 .6 3.6 1 1 0 0 1-.2 1z"/></svg>
+        </div>
+        <div class="cx-card-body">
+          <div class="cx-card-label">Customer Care</div>
+          <div class="cx-card-val">
+            <a href="tel:18001234567">1800 123 4567</a> (Toll Free)<br>
+            <a href="tel:+917011441703">+91 70114 41703</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Email -->
+      <div class="cx-card">
+        <div class="cx-card-icon">
+          <svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5z"/></svg>
+        </div>
+        <div class="cx-card-body">
+          <div class="cx-card-label">Email</div>
+          <div class="cx-card-val"><a href="mailto:care@maxwellindustries.in">care@maxwellindustries.in</a></div>
+        </div>
+      </div>
+
+      <!-- WhatsApp -->
+      <div class="cx-card">
+        <div class="cx-card-icon" style="background:#25d366;">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.38 5.06L2 22l5.09-1.35A9.94 9.94 0 0 0 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm4.93 13.44c-.2.57-1.19 1.1-1.64 1.16-.42.06-.95.08-1.53-.1-.35-.11-.8-.26-1.37-.51-2.4-1.03-3.97-3.44-4.09-3.6-.12-.16-.96-1.28-.96-2.44 0-1.16.61-1.73.83-1.97.22-.24.47-.3.63-.3h.45c.14 0 .34-.05.53.4.2.47.67 1.63.73 1.75.06.12.1.26.02.42-.08.16-.12.26-.24.4-.12.14-.25.31-.36.42-.12.12-.24.25-.1.49.14.24.62 1.02 1.33 1.65.91.82 1.68 1.07 1.92 1.19.24.12.38.1.52-.06.14-.16.6-.7.76-.94.16-.24.32-.2.54-.12.22.08 1.39.66 1.63.78.24.12.4.18.46.28.06.1.06.57-.14 1.14z"/></svg>
+        </div>
+        <div class="cx-card-body">
+          <div class="cx-card-label">WhatsApp</div>
+          <div class="cx-card-val"><a href="https://wa.me/917011441703" target="_blank">+91 70114 41703</a></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Social -->
+    <div class="cx-social-label">Follow Us</div>
+    <div class="cx-socials">
+      <a href="#" aria-label="Instagram">
+        <svg viewBox="0 0 24 24"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm5 5.5A4.5 4.5 0 1 0 16.5 12 4.5 4.5 0 0 0 12 7.5zm0 2A2.5 2.5 0 1 1 9.5 12 2.5 2.5 0 0 1 12 9.5zM17.5 6a1 1 0 1 0 1 1 1 1 0 0 0-1-1z"/></svg>
+      </a>
+      <a href="#" aria-label="YouTube">
+        <svg viewBox="0 0 24 24"><path d="M23 12s0-3.5-.4-5.2a2.8 2.8 0 0 0-2-2C18.9 4.4 12 4.4 12 4.4s-6.9 0-8.6.4a2.8 2.8 0 0 0-2 2C1 8.5 1 12 1 12s0 3.5.4 5.2a2.8 2.8 0 0 0 2 2c1.7.4 8.6.4 8.6.4s6.9 0 8.6-.4a2.8 2.8 0 0 0 2-2c.4-1.7.4-5.2.4-5.2zM10 15.5v-7l6 3.5z"/></svg>
+      </a>
+      <a href="#" aria-label="Facebook">
+        <svg viewBox="0 0 24 24"><path d="M13 22v-8h3l1-4h-4V7.5c0-1.1.3-2 2-2h2V2h-3c-3 0-5 1.8-5 5v3H6v4h3v8h4z"/></svg>
+      </a>
+      <a href="#" aria-label="X">
+        <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L2.249 2.25H9.08l4.261 5.636 4.903-5.636zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+      </a>
+      <a href="#" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24"><path d="M4.98 3.5A2.5 2.5 0 1 1 2.5 6 2.5 2.5 0 0 1 4.98 3.5zM3 8.98h4V21H3zM9 9h3.8v1.7h.1a4.2 4.2 0 0 1 3.8-2c4 0 4.8 2.6 4.8 6V21h-4v-5.6c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9V21H9z"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- Form -->
+  <div class="cx-form-col">
+    <h2 class="cx-form-title">Send Us a Message</h2>
+    <p class="cx-form-sub">Fill in the form and we'll get back to you within 24 hours.</p>
+
+    <form class="cx-form" id="contactForm" onsubmit="handleSubmit(event)">
+      <div class="cx-row">
+        <div class="cx-field">
+          <label for="fname">First Name</label>
+          <input type="text" id="fname" name="fname" placeholder="Rahul" required>
+        </div>
+        <div class="cx-field">
+          <label for="lname">Last Name</label>
+          <input type="text" id="lname" name="lname" placeholder="Sharma" required>
+        </div>
+      </div>
+
+      <div class="cx-row">
+        <div class="cx-field">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="rahul@email.com" required>
+        </div>
+        <div class="cx-field">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" name="phone" placeholder="+91 00000 00000">
+        </div>
+      </div>
+
+      <div class="cx-field">
+        <label for="subject">Subject</label>
+        <select id="subject" name="subject" required>
+          <option value="" disabled selected>Select a topic</option>
+          <option>Product Support / Warranty</option>
+          <option>Dealer / Distributor Enquiry</option>
+          <option>Spare Parts Request</option>
+          <option>Service Centre Locator</option>
+          <option>General Enquiry</option>
+          <option>Feedback / Complaint</option>
+        </select>
+      </div>
+
+      <div class="cx-field">
+        <label for="product">Product Name (if applicable)</label>
+        <input type="text" id="product" name="product" placeholder="e.g. Maxwell Mixer Grinder MX-500">
+      </div>
+
+      <div class="cx-field">
+        <label for="message">Your Message</label>
+        <textarea id="message" name="message" placeholder="Describe your query in detail…" required></textarea>
+      </div>
+
+      <button type="submit" class="cx-submit">
+        Send Message
+        <svg viewBox="0 0 24 24"><path d="M2 21l21-9L2 3v7l15 2-15 2z"/></svg>
+      </button>
+
+      <div class="cx-success" id="successMsg">
+        <svg viewBox="0 0 24 24" style="width:20px;height:20px;fill:#1e7e34;flex-shrink:0"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+        Thank you! Your message has been sent. We'll respond within 24 hours.
+      </div>
+    </form>
+  </div>
+
+</section>
+
+<!-- ── Map ── -->
+<section class="cx-map-section">
+  <h2>Find <strong>Us</strong></h2>
+  <p>Maxwell Industries · Plot No. 28/1, Sector-94, Greater Faridabad – 121002</p>
+  <div class="cx-map-wrap">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3510.1!2d77.3!3d28.38!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjjCsDIy!5e0!3m2!1sen!2sin!4v1"
+      allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+      title="Maxwell Industries Location">
+    </iframe>
+  </div>
+</section>
+
+<!-- ── Footer ── -->
+<footer class="mx-footer" id="footer">
+  <div class="mx-footer-logo">
+    <img src="/maxwell-logo.png" alt="Maxwell" style="height:80px;vertical-align:middle;">
+  </div>
+  <div class="mx-footer-cols">
+    <div class="mx-footer-col">
+      <h4>Corporate Office</h4>
+      <p>Maxwell Industries</p>
+      <p>Plot No. 28/1, Sector-94,<br>Greater Faridabad – 121002, (India)</p>
+      <div class="mx-footer-tel">
+        <svg viewBox="0 0 24 24" width="15" height="15" fill="#d0021b"><path d="M6.6 10.8a15.2 15.2 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.2 11.4 11.4 0 0 0 3.6.6 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.4 11.4 0 0 0 .6 3.6 1 1 0 0 1-.2 1z"/></svg>
+        <a href="tel:+917011441703">+91 70114 41703</a>
+      </div>
+      <div class="mx-footer-tel" style="margin-top:6px;">
+        <svg viewBox="0 0 24 24" width="15" height="15" fill="#d0021b"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5z"/></svg>
+        <a href="mailto:care@maxwellindustries.in">care@maxwellindustries.in</a>
+      </div>
+      <div class="mx-newsletter">
+        <label>Newsletter</label>
+        <div style="display:flex;">
+          <input type="email" placeholder="Your email address">
+          <button type="button">Submit</button>
+        </div>
+      </div>
+    </div>
+    <div class="mx-footer-col">
+      <h4>Customer Care</h4>
+      <p>Issues with Mixer Grinders, Juicers, Water Purifiers or any Maxwell appliance? We're here to help.</p>
+      <div class="mx-footer-tel" style="margin-top:14px;">
+        <svg viewBox="0 0 24 24" width="15" height="15" fill="#d0021b"><path d="M6.6 10.8a15.2 15.2 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.2 11.4 11.4 0 0 0 3.6.6 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.4 11.4 0 0 0 .6 3.6 1 1 0 0 1-.2 1z"/></svg>
+        <a href="tel:18001234567">1800 123 4567 (Toll Free)</a>
+      </div>
+      <div class="mx-footer-tel" style="margin-top:6px;">
+        <svg viewBox="0 0 24 24" width="15" height="15" fill="#25d366"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.38 5.06L2 22l5.09-1.35A9.94 9.94 0 0 0 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm4.93 13.44c-.2.57-1.19 1.1-1.64 1.16-.42.06-.95.08-1.53-.1-.35-.11-.8-.26-1.37-.51-2.4-1.03-3.97-3.44-4.09-3.6-.12-.16-.96-1.28-.96-2.44 0-1.16.61-1.73.83-1.97.22-.24.47-.3.63-.3h.45c.14 0 .34-.05.53.4.2.47.67 1.63.73 1.75.06.12.1.26.02.42-.08.16-.12.26-.24.4-.12.14-.25.31-.36.42-.12.12-.24.25-.1.49.14.24.62 1.02 1.33 1.65.91.82 1.68 1.07 1.92 1.19.24.12.38.1.52-.06.14-.16.6-.7.76-.94.16-.24.32-.2.54-.12.22.08 1.39.66 1.63.78.24.12.4.18.46.28.06.1.06.57-.14 1.14z"/></svg>
+        <a href="https://wa.me/917011441703" target="_blank">+91 70114 41703 (WhatsApp)</a>
+      </div>
+      <div class="mx-follow">
+        <p>Follow Us On</p>
+        <div class="mx-socials">
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm5 5.5A4.5 4.5 0 1 0 16.5 12 4.5 4.5 0 0 0 12 7.5zm0 2A2.5 2.5 0 1 1 9.5 12 2.5 2.5 0 0 1 12 9.5zM17.5 6a1 1 0 1 0 1 1 1 1 0 0 0-1-1z"/></svg></a>
+          <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M23 12s0-3.5-.4-5.2a2.8 2.8 0 0 0-2-2C18.9 4.4 12 4.4 12 4.4s-6.9 0-8.6.4a2.8 2.8 0 0 0-2 2C1 8.5 1 12 1 12s0 3.5.4 5.2a2.8 2.8 0 0 0 2 2c1.7.4 8.6.4 8.6.4s6.9 0 8.6-.4a2.8 2.8 0 0 0 2-2c.4-1.7.4-5.2.4-5.2zM10 15.5v-7l6 3.5z"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M13 22v-8h3l1-4h-4V7.5c0-1.1.3-2 2-2h2V2h-3c-3 0-5 1.8-5 5v3H6v4h3v8h4z"/></svg></a>
+          <a href="#" aria-label="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L2.249 2.25H9.08l4.261 5.636 4.903-5.636zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M4.98 3.5A2.5 2.5 0 1 1 2.5 6 2.5 2.5 0 0 1 4.98 3.5zM3 8.98h4V21H3zM9 9h3.8v1.7h.1a4.2 4.2 0 0 1 3.8-2c4 0 4.8 2.6 4.8 6V21h-4v-5.6c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9V21H9z"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <div class="mx-footer-col">
+      <h4>Our Products</h4>
+      <ul>
+        <li><a href="#">Mixer Grinders</a></li>
+        <li><a href="#">Juicers</a></li>
+        <li><a href="#">Water Purifiers</a></li>
+        <li><a href="#">Induction Cooktops</a></li>
+        <li><a href="#">Electric Kettles</a></li>
+        <li><a href="#">Sandwich Makers</a></li>
+        <li><a href="#">Hand Blenders</a></li>
+        <li><a href="#">Dry Irons</a></li>
+      </ul>
+    </div>
+    <div class="mx-footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="/about">About Us</a></li>
+        <li><a href="/contact">Contact Us</a></li>
+        <li><a href="#">Dealer Locator</a></li>
+        <li><a href="#">Service Centre</a></li>
+      </ul>
+      <h5>Other Links</h5>
+      <ul>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms &amp; Conditions</a></li>
+        <li><a href="#">Warranty Policy</a></li>
+        <li><a href="/careers">Careers</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="mx-footer-bottom">
+    <span>© 2026 Maxwell Industries · Premium Home Appliances · All Rights Reserved</span>
+    <a href="https://www.maxwellgroup.in" target="_blank" rel="noopener">www.maxwellgroup.in</a>
+  </div>
+</footer>
+
+<script>
+  function handleSubmit(e) {
+    e.preventDefault();
+    const btn = document.querySelector('.cx-submit');
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+    setTimeout(() => {
+      document.getElementById('contactForm').reset();
+      document.getElementById('successMsg').classList.add('show');
+      btn.disabled = false;
+      btn.innerHTML = 'Send Message <svg viewBox="0 0 24 24" style="width:16px;height:16px;fill:#fff;vertical-align:middle"><path d="M2 21l21-9L2 3v7l15 2-15 2z"/></svg>';
+    }, 900);
+  }
+</script>
+
+</body>
+</html>
