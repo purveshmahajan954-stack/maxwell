@@ -32,6 +32,20 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- End Google Tag Manager -->
 
 
+<style>
+/* Fix stacking section blank space — disable GSAP pin scroll */
+.section_stacking { height: auto !important; min-height: unset !important; }
+.stacking_wrapper { height: auto !important; min-height: unset !important; }
+.stacking_item { position: relative !important; top: unset !important; transform: none !important; opacity: 1 !important; margin-bottom: 2rem; }
+.stacking_item-img-wrp { position: relative !important; }
+.stacking_heading { position: relative !important; }
+/* Fix horizontal section blank space */
+.section_horizontal { height: auto !important; min-height: unset !important; }
+.horizontal_wrapper { height: auto !important; min-height: unset !important; }
+.horizontal_sticky { position: relative !important; top: unset !important; height: auto !important; }
+.horizontal_content { transform: none !important; width: 100% !important; }
+.horizontal_content-cards { flex-wrap: wrap !important; overflow: visible !important; gap: 2rem !important; }
+</style>
 <style>#iubenda-cs-banner,.iubenda-cs-opt-group,[id*="iubenda-cs"],[class*="iubenda-cs"]{display:none!important;visibility:hidden!important;opacity:0!important;pointer-events:none!important;}body{overflow:auto!important;}</style></head><body><div class="page-wrapper"><div class="global-styles w-embed"><style>
 
 /* Make text look crisper and more legible in all browsers */
